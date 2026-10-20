@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Raising Num</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="app">
+    <header class="app-header">
+      <h1>Raising Num</h1>
+      <p>Four everyday decisions. Two years. One very particular cat.</p>
+    </header>
+
+    <div class="layout">
+      <!-- Status sits in its own grid area: beside the story on desktop, above it on phones -->
+      <section id="status" class="status panel side-panel" aria-labelledby="h-status">
+        <h2 id="h-status">Status</h2>
+        <p id="stage-label" class="stage-label"></p>
+        <div class="track" id="progress" role="progressbar" aria-label="Decisions made"
+             aria-valuemin="0" aria-valuemax="4">
+          <div class="fill"></div>
+        </div>
+
+        <div class="meters">
+          <div id="meter-bond">
+            <div class="meter-head"><span>Bond</span><span class="meter-value"></span></div>
+            <div class="track"><div class="fill"></div></div>
+          </div>
+          <div id="meter-energy">
+            <div class="meter-head"><span>Energy</span><span class="meter-value"></span></div>
+            <div class="track"><div class="fill"></div></div>
+          </div>
+          <div id="meter-curiosity">
+            <div class="meter-head"><span>Curiosity</span><span class="meter-value"></span></div>
+            <div class="track"><div class="fill"></div></div>
+          </div>
+        </div>
+
+        <!-- One short line for screen readers instead of announcing every meter -->
+        <p id="sr-status" class="sr-only" aria-live="polite"></p>
+      </section>
+
+      <!-- Stage: every screen exists up front; render() only toggles .is-active -->
+      <main id="stage" class="stage panel">
+
+        <section id="screen-intro" class="screen" aria-labelledby="h-intro">
+          <figure class="photo" data-fallback="Num as a kitten">
+            <img src="images/Num_kitty.jpg" alt="Num as a tiny kitten">
+          </figure>
+          <div>
+            <p class="scene-age">Day one</p>
+            <h2 id="h-intro" tabindex="-1">Num is coming home</h2>
+            <p>Num is a tiny rescue kitten who has never seen your apartment before.
+               Over the next two years, four small decisions will shape who they grow up to be.</p>
+            <button id="start-btn" class="btn-primary" type="button">Bring Num home</button>
+          </div>
+        </section>
+
+        <section id="screen-step-0" class="screen" aria-labelledby="h-step-0">
+          <figure class="photo" data-fallback="Num as a kitten">
+            <img src="images/Num_kitty.jpg" alt="Num as a kitten, looking around curiously">
+          </figure>
+          <div>
+            <p class="scene-age">Kitten · Week 1</p>
+            <h2 id="h-step-0" tabindex="-1">First night home</h2>
+            <p>Num is small, a little nervous, and wide awake. Where do they spend the first night?</p>
+            <div class="choices">
+              <button class="choice" type="button" data-choice="cuddle">Cuddle together in your bed</button>
+              <button class="choice" type="button" data-choice="box">Set up a cozy box by your bed</button>
+              <button class="choice" type="button" data-choice="explore">Let Num roam and explore</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="screen-step-1" class="screen" aria-labelledby="h-step-1">
+          <figure class="photo" data-fallback="Num as a kitten">
+            <img src="images/Num_kitty.jpg" alt="Num as a kitten, ready to pounce">
+          </figure>
+          <div>
+            <p class="scene-age">Kitten · Month 3</p>
+            <h2 id="h-step-1" tabindex="-1">Playtime</h2>
+            <p>Num has discovered they have legs, and that legs can run. How do you spend playtime?</p>
+            <div class="choices">
+              <button class="choice" type="button" data-choice="wand">Feather-wand chase around the room</button>
+              <button class="choice" type="button" data-choice="puzzle">A treat puzzle feeder to figure out</button>
+              <button class="choice" type="button" data-choice="lap">A slow afternoon nap on your lap</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="screen-step-2" class="screen" aria-labelledby="h-step-2">
+          <figure class="photo" data-fallback="Num at 1 year old">
+            <img src="images/Num_1_year_old.jpg" alt="Num at one year old">
+          </figure>
+          <div>
+            <p class="scene-age">One year old</p>
+            <h2 id="h-step-2" tabindex="-1">A weekend away</h2>
+            <p>You have to travel for a weekend. What's the plan for Num?</p>
+            <div class="choices">
+              <button class="choice" type="button" data-choice="sitter">Hire a sitter who loves to play</button>
+              <button class="choice" type="button" data-choice="toys">Leave extra toys and food</button>
+              <button class="choice" type="button" data-choice="along">Bring Num along for the trip</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="screen-step-3" class="screen" aria-labelledby="h-step-3">
+          <figure class="photo" data-fallback="Num at 1 year old">
+            <img src="images/Num_1_year_old.jpg" alt="Num at one year old, watching something intently">
+          </figure>
+          <div>
+            <p class="scene-age">One year old · Spring</p>
+            <h2 id="h-step-3" tabindex="-1">Birds at the window</h2>
+            <p>A family of sparrows has moved into the tree outside. Num is glued to the glass.</p>
+            <div class="choices">
+              <button class="choice" type="button" data-choice="perch">Build a window perch for bird-watching</button>
+              <button class="choice" type="button" data-choice="walk">Try a harness walk outside</button>
+              <button class="choice" type="button" data-choice="curtains">Close the curtains and cuddle</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="screen-outcome" class="screen" aria-labelledby="outcome-title">
+          <figure class="photo" data-fallback="Num at 2 years old">
+            <img src="images/Num_2_years_old.jpg" alt="Num at two years old">
+          </figure>
+          <div>
+            <p class="scene-age">Two years later</p>
+            <p id="outcome-badge" class="outcome-badge"></p>
+            <h2 id="outcome-title" tabindex="-1"></h2>
+            <p id="outcome-text"></p>
+            <button id="again-btn" class="btn-primary" type="button">Raise Num again</button>
+          </div>
+        </section>
+      </main>
+
+      <aside class="sidebar">
+        <section class="panel side-panel" aria-labelledby="h-journey">
+          <h2 id="h-journey">Num's journey</h2>
+          <ol id="journey-log" class="journey"></ol>
+        </section>
+
+        <div class="controls">
+          <button id="back-btn" type="button">← Back</button>
+          <button id="reset-btn" type="button">Reset</button>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
