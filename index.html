@@ -15,7 +15,6 @@
     </header>
 
     <div class="layout">
-      <!-- Status sits in its own grid area: beside the story on desktop, above it on phones -->
       <section id="status" class="status panel side-panel" aria-labelledby="h-status">
         <h2 id="h-status">Status</h2>
         <p id="stage-label" class="stage-label"></p>
@@ -39,11 +38,9 @@
           </div>
         </div>
 
-        <!-- One short line for screen readers instead of announcing every meter -->
         <p id="sr-status" class="sr-only" aria-live="polite"></p>
       </section>
 
-      <!-- Stage: every screen exists up front; render() only toggles .is-active -->
       <main id="stage" class="stage panel">
 
         <section id="screen-intro" class="screen" aria-labelledby="h-intro">
@@ -130,8 +127,8 @@
           <div>
             <p class="scene-age">Two years later</p>
             <p id="outcome-badge" class="outcome-badge"></p>
-            <h2 id="outcome-title" tabindex="-1"></h2>
-            <p id="outcome-text"></p>
+            <h2 id="outcome-title" tabindex="-1">Num, all grown up</h2>
+            <p id="outcome-text">Make all four decisions to find out who Num becomes.</p>
             <button id="again-btn" class="btn-primary" type="button">Raise Num again</button>
           </div>
         </section>
