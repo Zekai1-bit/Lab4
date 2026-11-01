@@ -303,17 +303,25 @@ h2[tabindex="-1"]:focus { outline: none; }
     position: sticky;
     top: 8px;
     z-index: 1;
-    padding: 12px 14px;
+    padding: 8px 12px;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);  
+    align-items: center;
+    column-gap: 10px;
+    row-gap: 6px;
   }
   .status h2 { display: none; }
-  .status .stage-label { margin-bottom: 6px; font-size: 0.95rem; }
+  .status .stage-label { margin: 0; font-size: 0.85rem; }
   .status .meters {
+    grid-column: 1 / -1;  
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 12px;
-    margin-top: 10px;
+    gap: 10px;
+    margin-top: 0;
   }
-  .status .meter-head { font-size: 0.8rem; }
-  .status .track { height: 8px; }
+  .status .meter-head { font-size: 0.75rem; margin-bottom: 2px; }
+  .status .track { height: 6px; }
+
+  .sidebar .controls { order: -1; }
 }
 
 @media (max-width: 600px) {
