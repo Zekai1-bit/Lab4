@@ -56,7 +56,7 @@ function computeStats(history) {
   const stats = { bond: 0, energy: 0, curiosity: 0 };
   for (const id of history) {
     for (const [stat, amount] of Object.entries(CHOICES[id].effects)) {
-      stats[stat] += amount;
+      stats[stat] = Math.max(0, stats[stat] + amount);  
     }
   }
   return stats;
@@ -80,6 +80,12 @@ function getStepIndex() {
 }
 
 function evaluateOutcome() {
+  if (curiosity >= 4 && energy >= 4) return "explorer";
+
+  if (bond > energy && bond > curiosity)      return "lapcat";
+  if (energy > bond && energy > curiosity)    return "zoomies";
+  if (curiosity > bond && curiosity > energy) return "explorer";
+
   return "philosopher";
 }
 
